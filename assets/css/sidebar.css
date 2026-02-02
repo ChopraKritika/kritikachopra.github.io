@@ -1,0 +1,209 @@
+/* Layout: sidebar + content side by side */
+#layout {
+  display: flex;
+}
+
+/* Sidebar column */
+#sidebar {
+  flex: 0 0 200px;  /* fixed width */
+  height: 100vh;
+  background: #111;
+  position: sticky;
+  top: 0;
+  padding-top: 40px;  /* space for links */
+}
+
+/* Sidebar navigation styles */
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li {
+  margin: 20px 0;
+}
+
+#sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px 15px;
+  transition: background 0.3s;
+}
+
+#sidebar ul li a:hover {
+  background: #333;
+  border-radius: 5px;
+}
+
+/* Content column (to the right of sidebar) */
+#wrapper {
+  flex: 1;                  /* take remaining space */
+  overflow-x: hidden;
+  margin-left: 0px;        /* little spacing from sidebar */
+  margin-right: 0px;      /* keep content away from right edge */
+  max-width: 1600px;        /* cap content width */
+  padding: 0 0px;          /* breathing room */
+  width: 100%;              /* ensures it fits smaller devices */
+}
+
+/* Center individual sections inside wrapper */
+#wrapper > section {
+  max-width: 1400px;         /* readable line length */
+  margin: 0 auto;           /* center horizontally */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  #layout {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    flex: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 10px;
+  }
+
+  #wrapper {
+    margin: 0 auto;         /* center content under sidebar */
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 150px;        /* space between columns */
+  flex-wrap: wrap;  /* stack on smaller screens */
+}
+
+.col {
+  flex: 1;          /* default: equal share of space */
+  min-width: 250px; /* don’t let it shrink too small */
+  padding: 10px;
+}
+
+/* Give a specific width to a particular column */
+.col.left {
+  flex: 0 0 40%;    /* fixed to 40% width */
+  text-align: center; /* centers text/content inside */
+
+}
+
+.col.right {
+  flex: 0 0 40%;    /* fixed to 60% width */
+}
+
+/* Icon row inside left column */
+.col.left .icon-row {
+  display: inline-flex;       /* behaves like text-center but flex for alignment */
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;    /* center the whole row inside col.left */
+  align-items: center;        /* vertical alignment */
+  margin: 160px 0;             /* spacing above/below */
+  width: auto;                /* shrink to content instead of full width */
+}
+
+.icon-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.icon-label i {
+  font-size: 1.5rem;
+}
+
+.icon-label span {
+  font-weight: 400;
+}
+
+header.new h1,header.new h2,header.new h3,header.new h4,header.new h5,header.new h6{
+    margin-bottom: 0.25rem; /* space below heading */
+    line-height: 1.2;       /* tighter heading */
+}
+
+header.new p {
+    margin: 0.1rem 0;        /* reduce space above/below paragraph */
+    line-height: 1.25;       /* tighter lines */
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.75);
+}
+sub p {
+margin: 0.1rem 0;        /* reduce space above/below paragraph */
+line-height: 1.25; 
+font-size: 1rem;
+}
+
+.flexible{
+display: inline;
+}
+
+.centered-section {
+  display: flex;
+  flex-direction: column;   /* stack children vertically */
+  align-items: center;      /* center horizontally */
+  text-align: center;       /* center text inside blocks */
+  /* optional, if you want vertical centering relative to page height: */
+  /* justify-content: center; 
+     min-height: 100vh; */
+}
+
+.info-section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Lato', sans-serif;
+}
+
+.info-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid #eee;
+  padding: 0.5rem;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  /*border-top: 1px solid #eee;*/ /* subtle separation */
+}
+
+.info-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  /*border-radius: 12px;*/
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.info-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.info-card .uni {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.info-card .time {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.info-card p {
+  margin: 0.3rem 0; /* tighter spacing */
+}
+
+
